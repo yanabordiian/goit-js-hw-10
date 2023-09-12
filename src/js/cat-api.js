@@ -4,7 +4,7 @@ const BASE_URL = 'https://api.thecatapi.com/v1';
 
 export function fetchCats() {
     return axios
-        .get(`${BASE_URL}/breds`)
+        .get(`${BASE_URL}/breeds`)
         .then(response => { return response.data; });
 }
 
