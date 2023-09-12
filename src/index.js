@@ -2,9 +2,11 @@ import axios from "axios";
 import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { fetchCats, fetchCatByBreed } from './cat-api';
+
 
 axios.defaults.headers.common["x-api-key"] = "live_1bnw9gdn42BcKXpPOBZ6iw1S5LYDUJNMqs03a1JyXRES02E1Y19E24QZYpqkJSwS";
-const BASE_URL = 'https://api.thecatapi.com/v1';
+
 
 const selectCat = document.querySelector('.breed-select');
 const catInfo = document.querySelector('.cat-info');
@@ -75,21 +77,6 @@ function renderMarkUp(data) {
     catInfo.innerHTML = breedCard;
 }
 
-function fetchCatByBreed(breedId) {
-    return axios
-        .get(`${BASE_URL}/images/search?breed_ids=${breedId}`)
-        .then(response => { return response.data; })
-        .catch(error => { throw new Error('Помилка запиту:', error.message); });
-        
-}
-
-
-function fetchCats() {
-    return axios
-        .get(`${BASE_URL}/breeds`)
-        .then(response => { return response.data; })
-        .catch(error => { throw new Error('Помилка запиту:', error.message); });
-}
 
 
 
