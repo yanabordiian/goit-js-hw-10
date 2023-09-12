@@ -11,6 +11,14 @@ const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
 
+const busyCatLoader = document.createElement('img');
+busyCatLoader.src = 'https://media.giphy.com/media/7NoNw4pMNTvgc/giphy.gif';
+busyCatLoader.alt = 'Котик ищет😼';
+loader.append(busyCatLoader);
+
+
+
+
 selectCat.addEventListener('change', onSelectChange);
 
 function createCatsList() {
