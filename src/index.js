@@ -4,10 +4,6 @@ import 'slim-select/dist/slimselect.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchCats, fetchCatByBreed } from './js/cat-api';
 
-
-axios.defaults.headers.common["x-api-key"] = "live_1bnw9gdn42BcKXpPOBZ6iw1S5LYDUJNMqs03a1JyXRES02E1Y19E24QZYpqkJSwS";
-
-
 const selectCat = document.querySelector('.breed-select');
 const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
@@ -39,7 +35,8 @@ function createCatsList() {
         loader.classList.add('is-hidden');
         selectCat.classList.remove('is-hidden');
     })
-    .catch(error => {
+        .catch(error => {
+        loader.classList.add('is-hidden');
         Notify.failure('Ooop! Something went wrong! Try reloading the page!');
     })
 }
